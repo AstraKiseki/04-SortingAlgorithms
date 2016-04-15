@@ -19,7 +19,6 @@ namespace SortingAlgorithms
         }
         static void Main(string[] args)
         {
-
             Console.WriteLine("Loading file...");
             int[] list = readFromFile();
             Console.WriteLine("File loaded.");
@@ -30,7 +29,6 @@ namespace SortingAlgorithms
             Console.WriteLine();
 
             string choice = Console.ReadLine();
-
             switch (choice)
             {
                 case "1":
@@ -42,9 +40,7 @@ namespace SortingAlgorithms
                 default:
                     Console.WriteLine("Not a valid choice.");
                     break;
-
             }
-
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
         }
@@ -53,26 +49,20 @@ namespace SortingAlgorithms
         {
             {
                 string fileContents = File.ReadAllText("C:\\dev\\data\\unsorted-numbers.txt");
-
                 string[] numbersAsStrings = fileContents.Split(',');
-
                 int[] numbers = new int[numbersAsStrings.Length];
-
                 for (int i = 0; i < numbersAsStrings.Length; i++)
                 {
                     numbers[i] = int.Parse(numbersAsStrings[i]);
                 }
-
                 return numbers;
             }
         }
-
         static void bubbleSort(int[] list)
         {
             printList("Unsorted List", list);
             int ichi, ni;
             int List = list.Length;
-
             for (ni = List - 1; ni > 0; ni--)
             {
                 for (ichi = 0; ichi < ni; ichi++)
@@ -83,13 +73,11 @@ namespace SortingAlgorithms
             }
             printList("Sorted List", list);
         }
-
         static void insertionSort(int[] list)
         {
             printList("Unsorted List", list);
             int uno, dos;
             int List = list.Length;
-
             for (dos = 1; dos < List; dos++)
             {
                 for (uno = dos; uno > 0 && list[uno] < list[uno - 1]; uno--)
@@ -100,7 +88,6 @@ namespace SortingAlgorithms
             }
             printList("Sorted List", list);
         }
-
         static void printList(string listName, int[] list)
         {
             Console.WriteLine("-- " + listName + " --");
